@@ -9,7 +9,6 @@ export function useProducts() {
 
     function addProduct(product: IProduct) {
         setProducts(prev => [...prev, product])
-
     }
 
     async function fetchProducts() {
@@ -24,14 +23,11 @@ export function useProducts() {
             const error = e as AxiosError
             setLoading(false)
             setError(error.message)
-
         }
-
     }
 
     useEffect(() => {
         fetchProducts()
     }, [])
     return {products, error, loading, addProduct}
-
 }
